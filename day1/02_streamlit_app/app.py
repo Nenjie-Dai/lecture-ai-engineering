@@ -47,7 +47,17 @@ pipe = llm.load_model()
 
 # --- Streamlit アプリケーション ---
 st.title("🤖 Gemma 2 Chatbot with Feedback")
-st.write("Gemmaモデルを使用したチャットボットです。回答に対してフィードバックを行えます。")
+st.markdown("""
+<style>
+.big-font {
+    font-size:20px ！important;
+    font-weight: bold;
+    color: #0066cc;
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown('<p class="big-font">Gemmaモデルを使用したチャットボットです。回答に対してフィードバックを行えます。</p>', unsafe_allow_html=True)
 st.markdown("---")
 
 # --- サイドバー ---
