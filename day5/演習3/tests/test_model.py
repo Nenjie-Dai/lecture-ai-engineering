@@ -127,10 +127,17 @@ def test_model_inference_time(train_model):
 
     # 推論時間の計測
     start_time = time.time()
-    model.predict(X_test)
+    model.predict(X_test) 
     end_time = time.time()
 
     inference_time = end_time - start_time
+    num_samples = len(X_test)
+    inference_speed = num_samples / inference_time if inference_time > 0 else float('inf') 
+
+    # 計測された推論時間と推論速度を標準出力に表示
+    print(f"\n推論対象サンプル数: {num_samples} 件")
+    print(f"合計推論時間: {inference_time:.4f} 秒")
+    print(f"平均推論速度: {inference_speed:.2f} サンプル/秒")
 
     # 推論時間が1秒未満であることを確認
     assert inference_time < 1.0, f"推論時間が長すぎます: {inference_time}秒"
